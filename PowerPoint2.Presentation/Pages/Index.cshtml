@@ -1,0 +1,37 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Presentations";
+}
+
+<head>
+    <title>Presentations</title>
+    <link href="~/css/index.css" rel="stylesheet" />
+    <script src="~/lib/sweetalert2/dist/js/sweetalert2.all.js"></script>
+    <script src="~/js/index.js"></script>
+</head>
+
+<body>
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Header Section -->
+        <header class="header">
+            <h1>Available Presentations</h1>
+            <button id="startPresentationBtn" class="btn primary">Start New Presentation</button>
+        </header>
+
+        <!-- Presentations List Section -->
+        <section class="presentations-list">
+            <ul class="presentation-links">
+                @foreach (var presentation in Model.Presentations)
+                {
+                    <li>
+                        <a class="presentation-link" data-id="@presentation.Id" href="/Presentation?presentationId=@presentation.Id&nickname=">
+                            @presentation.Title
+                        </a>
+                    </li>
+                }
+            </ul>
+        </section>
+    </div>
+</body>

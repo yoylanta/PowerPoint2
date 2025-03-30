@@ -1,0 +1,78 @@
+﻿@page
+@using PowerPoint2.Core.Models
+@model PresentationModel
+
+@{
+    ViewData["Title"] = Model.Presentation.Title;
+}
+<head>
+    <link href="~/css/presentation.css" rel="stylesheet" />
+    <script src="~/lib/sweetalert2/dist/js/sweetalert2.all.js"></script>
+    <script src="~/js/presentation.js"></script>
+</head>
+
+<body>
+    <!-- Top Panel: Navigation Bar -->
+    <header id="top-panel">
+        <div class="title-container">
+            <h1>@Model.Presentation.Title</h1>
+            @if (Model.IsCreator)
+            {
+                <button id="startPresentationBtn" class="action-btn">Start New Presentation</button>
+            }
+        </div>
+        <button id="presentModeBtn" class="action-btn">Present Mode</button>
+        <button id="saveSlideBtn">Save Slide</button>
+
+    </header>
+
+    <main id="main-container">
+        <!-- Left Panel: Slides List -->
+        <section id="slides-panel">
+            <h3>Slides</h3>
+            <ul>
+                @foreach (var slide in Model.Presentation.Slides)
+                {
+                    <li data-slide-id="@slide.Id" class="slide-item">
+                        @slide.SlideTitle
+                    </li>
+                }
+            </ul>
+            @if (Model.IsCreator)
+            {
+                <button id="addSlideBtn" class="action-btn">Add Slide</button>
+            }
+        </section>
+
+        <!-- Middle Panel: Slide Content Area -->
+        <section id="slide-area">
+            <h3>Slide Content</h3>
+            <div id="slideContent" class="slide-content-placeholder">Select a slide to view its content.</div>
+        </section>
+
+        <!-- Right Panel: Connected Users -->
+        <section id="users-panel">
+            <h3>Connected Users</h3>
+            <ul id="userList">
+                @foreach (var user in Model.Presentation.Participants)
+                {
+                    <li data-user-id="@user.Id">
+                        @user.Nickname
+                        @if (Model.IsCreator && user.Role != ParticipantRole.Creator)
+                        {
+                            <select class="roleSelector" data-user-id="@user.Id">
+                                @Html.Raw($"<option value='Viewer'{(user.Role == ParticipantRole.Viewer ? " selected='selected'" : "")}>Viewer</option>")
+                                @Html.Raw($"<option value='Editor'{(user.Role == ParticipantRole.Editor ? " selected='selected'" : "")}>Editor</option>")
+                            </select>
+                        }
+                    </li>
+                }
+            </ul>
+        </section>
+    </main>
+
+    <script>
+        const presentationId = @Model.Presentation.Id;
+        const nickname = "@Model.Nickname";
+    </script>
+</body>

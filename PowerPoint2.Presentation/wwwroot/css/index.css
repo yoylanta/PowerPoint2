@@ -1,0 +1,136 @@
+/* index.css */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #fafafa;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 20px;
+    color: #333;
+}
+
+ul.presentation-list {
+    list-style: none;
+    padding: 0;
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+    ul.presentation-list li {
+        background: #fff;
+        border: 1px solid #ddd;
+        margin-bottom: 10px;
+        padding: 15px;
+        border-radius: 4px;
+    }
+
+        ul.presentation-list li a {
+            text-decoration: none;
+            color: #007BFF;
+            font-weight: bold;
+        }
+
+#startPresentationBtn {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+    #startPresentationBtn:hover {
+        background-color: #0056b3;
+    }
+
+
+/* Reset some basic styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7fc;
+    color: #333;
+}
+
+.container {
+    width: 80%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #4a90e2;
+}
+
+.btn {
+    padding: 12px 24px;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 1rem;
+}
+
+.primary {
+    background-color: #4a90e2;
+    color: white;
+}
+
+    .primary:hover {
+        background-color: #357ab7;
+    }
+
+.presentations-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.presentation-links {
+    list-style: none;
+    width: 100%;
+    padding: 0;
+}
+
+    .presentation-links li {
+        background-color: #fff;
+        margin-bottom: 1rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 1rem;
+        transition: background-color 0.3s ease;
+    }
+
+        .presentation-links li:hover {
+            background-color: #f1f1f1;
+        }
+
+.presentation-link {
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: #4a90e2;
+    font-weight: 600;
+}
+
+    .presentation-link:hover {
+        text-decoration: underline;
+    }
